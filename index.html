@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dana Huang | Data & Operations</title>
+<meta name="description" content="Dana Huang – NTU MBA student turning data into operational decisions. Seeking internships in procurement, supply chain, PM, data and business analysis in Taipei.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F8FA; --paper:#FFFFFF; --ink:#0E1B2C; --text:#2B3645; --muted:#5F6B7A;
+  --navy:#0F2A4A; --blue:#1D5FA8; --green:#17806D; --blue-soft:#E8F0F9; --green-soft:#E6F3F0;
+  --line:#DCE2E9; --r:4px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--text);font:400 16.5px/1.65 "Inter",-apple-system,"Noto Sans TC",sans-serif}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{color:var(--ink);letter-spacing:-.015em;line-height:1.2}
+.kicker{display:flex;align-items:center;gap:10px;font-weight:600;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+.kicker::before{content:"";width:24px;height:2px;background:var(--blue)}
+section{padding:96px 0}
+h2{font-size:clamp(30px,4vw,40px);font-weight:700;margin-bottom:44px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:18px;text-decoration:none;color:var(--ink);letter-spacing:-.01em}
+.logo span{color:var(--blue)}
+nav ul{display:flex;gap:32px;list-style:none;font-weight:500;font-size:14.5px;color:var(--muted)}
+nav ul a{text-decoration:none}
+nav ul a:hover{color:var(--blue)}
+
+/* hero */
+.hero{background:var(--paper);border-bottom:1px solid var(--line);padding:80px 0}
+.hero .wrap{display:grid;grid-template-columns:1.35fr .8fr;gap:64px;align-items:center}
+.hero h1{font-size:clamp(44px,6.5vw,72px);font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.hero .role{font-size:clamp(18px,2vw,21px);font-weight:600;color:var(--blue);margin-top:14px}
+.hero .lead{font-size:18px;margin:20px 0 28px;max-width:46ch;color:var(--text)}
+.focus{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
+.focus span{font-size:13.5px;font-weight:600;color:var(--navy);background:var(--blue-soft);border-left:3px solid var(--blue);padding:6px 12px;border-radius:2px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:15px;padding:13px 24px;border-radius:var(--r);border:1px solid var(--navy);transition:background .15s,color .15s}
+.btn.primary{background:var(--navy);color:#fff}
+.btn.primary:hover{background:var(--blue);border-color:var(--blue)}
+.btn.ghost{color:var(--navy);background:transparent}
+.btn.ghost:hover{background:var(--blue-soft)}
+.portrait{position:relative;justify-self:end;width:min(100%,360px)}
+.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r)}
+.portrait::after{content:"";position:absolute;left:-14px;bottom:-14px;width:45%;height:45%;border-left:3px solid var(--green);border-bottom:3px solid var(--green);z-index:-1}
+.portrait{z-index:0}
+.status{margin-top:16px;display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500;color:var(--muted)}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block}
+
+/* stats */
+.strip{background:var(--navy);color:#fff;padding:40px 0}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:0 24px;border-left:1px solid rgba(255,255,255,.18)}
+.stat:first-child{border-left:0;padding-left:0}
+.stat b{display:block;font-size:34px;font-weight:700;letter-spacing:-.02em;line-height:1.15}
+.stat span{font-size:13.5px;color:#B9C6D6}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:start}
+.about-text p{margin-bottom:16px;font-size:17px}
+.traits{border-top:1px solid var(--line)}
+.trait{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:24px 0;border-bottom:1px solid var(--line)}
+.trait .num{font-size:14px;font-weight:700;color:var(--green);padding-top:3px}
+.trait h3{font-size:18px;font-weight:700;margin-bottom:4px}
+.trait p{color:var(--muted);font-size:15.5px}
+
+/* projects */
+#projects{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.proj-list{display:flex;flex-direction:column;gap:32px}
+.proj{display:grid;grid-template-columns:1fr 1.2fr;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--paper)}
+.proj:nth-child(even) .proj-text{order:2}
+.proj-text{padding:36px 40px;display:flex;flex-direction:column;gap:14px}
+.proj-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.metric{font-size:30px;font-weight:800;color:var(--blue);letter-spacing:-.02em;line-height:1}
+.proj.g .metric{color:var(--green)}
+.metric small{display:block;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);background:var(--bg);border:1px solid var(--line);border-radius:2px;padding:4px 8px;white-space:nowrap}
+.proj h3{font-size:21px;font-weight:700;border-left:4px solid var(--blue);padding-left:14px;margin-left:-40px;padding-left:36px}
+.proj.g h3{border-left-color:var(--green)}
+.meta{font-size:13.5px;color:var(--muted);margin-top:-8px}
+.prob{display:grid;grid-template-columns:86px 1fr;gap:6px 14px;font-size:15px;padding-top:12px;border-top:1px solid var(--line)}
+.prob dt{font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);padding-top:3px}
+.tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.tools span{font-size:12.5px;font-weight:500;color:var(--muted);background:var(--bg);border-radius:2px;padding:3px 9px}
+.proj a.more{font-weight:600;font-size:14.5px;color:var(--blue);text-decoration:none}
+.proj a.more:hover{text-decoration:underline}
+.proj-media{background:#EEF2F6;display:flex;align-items:center;justify-content:center;padding:28px}
+.proj-media img{width:100%;border-radius:2px;box-shadow:0 12px 30px rgba(15,42,74,.14)}
+.proj-media svg{width:100%;height:auto;background:#fff;padding:16px;border-radius:2px;box-shadow:0 8px 24px rgba(15,42,74,.08)}
+.proj-media figcaption{font-size:12.5px;color:var(--muted);margin-top:10px}
+.proj-media figure{width:100%}
+
+/* experience */
+.job{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:32px 0;border-top:1px solid var(--line)}
+.job:last-child{border-bottom:1px solid var(--line)}
+.date{font-weight:600;font-size:14px;color:var(--blue)}
+.job h3{font-size:21px;font-weight:700}
+.org{color:var(--muted);font-weight:500;margin:4px 0 12px}
+.job ul{padding-left:18px}
+.job li{margin-bottom:6px}
+.job li::marker{color:var(--green)}
+
+/* skills + education */
+#skills{padding-top:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:32px}
+.panel h3{font-size:20px;font-weight:700;margin-bottom:22px}
+.skill-group{margin-bottom:20px}
+.skill-group:last-child{margin-bottom:0}
+.skill-group b{display:block;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pills span{border:1px solid var(--line);border-radius:2px;padding:4px 11px;font-weight:500;font-size:14.5px;color:var(--ink);background:var(--bg)}
+.edu{padding-left:16px;border-left:2px solid var(--blue);margin-bottom:24px}
+.edu:last-child{margin-bottom:0}
+.edu h4{font-size:17px}
+.edu p{color:var(--muted);font-size:15px}
+
+/* contact */
+#contact{background:var(--navy);color:#fff}
+#contact .wrap{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap}
+#contact h2{color:#fff;margin-bottom:12px}
+#contact p{font-size:17px;max-width:48ch;color:#C8D3E0}
+#contact .kicker{color:#7FB2E5}
+#contact .kicker::before{background:#7FB2E5}
+#contact .btn{border-color:#fff}
+#contact .btn.primary{background:#fff;color:var(--navy)}
+#contact .btn.primary:hover{background:var(--blue-soft)}
+#contact .btn.ghost{color:#fff}
+#contact .btn.ghost:hover{background:rgba(255,255,255,.1)}
+footer{background:#0A1F38;color:#8EA0B5;text-align:center;padding:20px;font-size:13px}
+
+/* certificates */
+#certificates{padding-top:0}
+.certs{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:start}
+.cert-intro{font-size:16.5px;margin-bottom:20px;max-width:60ch}
+.cert-list{list-style:none;border-top:1px solid var(--line);background:var(--paper)}
+.cert-list li{display:grid;grid-template-columns:90px 1fr auto;gap:16px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--line);font-size:15px}
+.cert-list .cd{font-size:13px;font-weight:600;color:var(--green)}
+.cert-list .cn{color:var(--ink);font-weight:500}
+.cert-list a{font-size:13.5px;font-weight:600;color:var(--blue);text-decoration:none;white-space:nowrap}
+.cert-list a:hover{text-decoration:underline}
+.cert-img img{border:1px solid var(--line);border-radius:2px;box-shadow:0 12px 30px rgba(15,42,74,.12)}
+.cert-img figcaption{font-size:12.5px;color:var(--muted);margin-top:10px}
+
+/* responsive */
+@media (max-width:900px){
+  nav ul{display:none}
+  .hero .wrap,.about-grid,.two{grid-template-columns:1fr}
+  .hero{padding:48px 0 64px}
+  .portrait{justify-self:start;width:min(70%,300px);order:-1}
+  .portrait::after{display:none}
+  .strip .wrap{grid-template-columns:repeat(2,1fr);row-gap:28px}
+  .stat:nth-child(3){border-left:0;padding-left:0}
+  .proj{grid-template-columns:1fr}
+  .proj:nth-child(even) .proj-text{order:0}
+  .proj-text{padding:28px 24px}
+  .proj h3{margin-left:-24px;padding-left:20px}
+  .proj-media{padding:20px}
+  .job{grid-template-columns:1fr;gap:6px}
+  .certs{grid-template-columns:1fr}
+  .cert-img{max-width:420px}
+  section{padding:72px 0}
+}
+@media (max-width:480px){
+  .wrap{padding:0 16px}
+  .prob{grid-template-columns:1fr;gap:2px}
+  .prob dd{margin-bottom:8px}
+  .cert-list li{grid-template-columns:1fr auto;gap:2px 12px;padding:12px}
+  .cert-list .cd{grid-column:1/-1}
+  .stat{padding:0 14px}
+  .stat b{font-size:28px}
+  .proj-media svg{padding:10px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">Dana Huang<span>.</span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="kicker">NTU MBA · Taipei</span>
+      <h1>Dana Huang</h1>
+      <p class="role">Data-driven operations & business analysis</p>
+      <p class="lead">I turn messy data into clear operational decisions, and keep cross-functional teams and external partners aligned on getting them done.</p>
+      <div class="focus">
+        <span>Procurement & Supply Chain</span>
+        <span>Data / Business Analyst</span>
+        <span>Project Management</span>
+      </div>
+      <div class="btns">
+        <a class="btn primary" href="assets/Dana_Huang_Resume.pdf" target="_blank" rel="noopener">Download Résumé</a>
+        <a class="btn ghost" href="#projects">View Projects</a>
+      </div>
+    </div>
+    <div class="portrait">
+      <img src="assets/photo.jpg" alt="Portrait of Dana Huang">
+      <div class="status"><i></i>Open to internships · 2026 – 2027 · Taipei</div>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="stat"><b>300+</b><span>survey responses analyzed for a client</span></div>
+    <div class="stat"><b>60+</b><span>retail locations coordinated as an intern</span></div>
+    <div class="stat"><b>2</b><span>Gold Awards in case competitions</span></div>
+    <div class="stat"><b>8</b><span>verified IBM data analytics course certificates</span></div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <span class="kicker">About</span>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>Business judgment, backed by data.</h2>
+        <p>I'm an MBA student at National Taiwan University, trained in operations and logistics management, with a BBA from National Chengchi University (GPA 4.10 / 4.30).</p>
+        <p>I started out in brand marketing and kept finding that the most valuable part of every project was the data behind the decision. I've since built a toolkit in Python, SQL, R and Excel modelling, and I'm looking for an internship in procurement, supply chain, project management, or data and business analysis at a global tech company.</p>
+      </div>
+      <div class="traits">
+        <div class="trait">
+          <div class="num">01</div>
+          <div><h3>Fast learner of new tools</h3><p>Completed 8 IBM data analytics courses on Coursera in four months, while starting an MBA.</p></div>
+        </div>
+        <div class="trait">
+          <div class="num">02</div>
+          <div><h3>Structures ambiguous problems</h3><p>As PM on a consulting project, narrowed a client's broad request into one focused research question, then answered it with interviews and regression.</p></div>
+        </div>
+        <div class="trait">
+          <div class="num">03</div>
+          <div><h3>Aligns many stakeholders</h3><p>As an intern, served as the link between HQ, department stores and brand partners across 60+ locations, keeping promotions on schedule.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <span class="kicker">Selected Projects</span>
+    <h2>Problems I've worked on</h2>
+    <div class="proj-list">
+      <article class="proj">
+        <div class="proj-text">
+        <div class="proj-head"><div class="metric">18 + 300<small>interviews + surveys</small></div><span class="tag">Consulting</span></div>
+        <h3>Job-seeker Research for Cake</h3>
+        <div class="meta">Project Manager · NTU S&C Marketing Consulting Society · Feb – Jul 2025</div>
+        <dl class="prob">
+          <dt>Problem</dt><dd>A job platform wanted to understand how new graduates choose where to look for jobs and apply.</dd>
+          <dt>Approach</dt><dd>Led a 5-person cross-school team and owned the timeline. Ran in-depth interviews, then designed a survey and used regression to find which platform features drive browsing and applying.</dd>
+          <dt>Outcome</dt><dd>Delivered prioritised growth recommendations that were well received by the client.</dd>
+        </dl>
+        <div class="tools"><span>Survey design</span><span>SPSS</span><span>Regression</span><span>Project management</span></div>
+      </div>
+        <div class="proj-media"><figure><img src="assets/proj-cake.jpg" alt="Cover of the final client presentation for Cake"><figcaption>Final review deck presented to the client (findings under NDA)</figcaption></figure></div>
+      </article>
+
+      <article class="proj g">
+        <div class="proj-text">
+        <div class="proj-head"><div class="metric">+9% / −16%<small>output / WIP</small></div><span class="tag">Operations</span></div>
+        <h3>Production Line Simulation</h3>
+        <div class="meta">Operations Management · NTU MBA · 2026</div>
+        <dl class="prob">
+          <dt>Problem</dt><dd>A production line kept missing output targets. Was the bottleneck capacity, or variability?</dd>
+          <dt>Approach</dt><dd>Built a Monte Carlo model of the line and ran 500 simulations comparing scenarios based on the Theory of Constraints.</dd>
+          <dt>Outcome</dt><dd>Showed that reducing variability lifts output by 9% while cutting work-in-process by 16%.</dd>
+        </dl>
+        <div class="tools"><span>Excel</span><span>Monte Carlo</span><span>Theory of Constraints</span></div>
+      </div>
+        <div class="proj-media"><figure><svg viewBox="0 0 560 360" role="img" aria-label="Simulation results chart" font-family="Inter,Arial,sans-serif"><text x="0" y="18" font-size="15" font-weight="700" fill="#0E1B2C">Lower variability: more output, less WIP</text><rect x="0" y="32" width="10" height="10" fill="#1D5FA8"/><text x="15" y="41" font-size="11" fill="#2B3645">Output (parts in 10 days)</text><rect x="175" y="32" width="10" height="10" fill="#17806D"/><text x="190" y="41" font-size="11" fill="#2B3645">Work-in-process (parts)</text><line x1="44" x2="548" y1="300.0" y2="300.0" stroke="#E6EAEF"/><text x="36" y="304.0" font-size="10" fill="#5F6B7A" text-anchor="end">0</text><line x1="44" x2="548" y1="252.0" y2="252.0" stroke="#E6EAEF"/><text x="36" y="256.0" font-size="10" fill="#5F6B7A" text-anchor="end">10</text><line x1="44" x2="548" y1="204.0" y2="204.0" stroke="#E6EAEF"/><text x="36" y="208.0" font-size="10" fill="#5F6B7A" text-anchor="end">20</text><line x1="44" x2="548" y1="156.0" y2="156.0" stroke="#E6EAEF"/><text x="36" y="160.0" font-size="10" fill="#5F6B7A" text-anchor="end">30</text><line x1="44" x2="548" y1="108.0" y2="108.0" stroke="#E6EAEF"/><text x="36" y="112.0" font-size="10" fill="#5F6B7A" text-anchor="end">40</text><line x1="44" x2="548" y1="60.0" y2="60.0" stroke="#E6EAEF"/><text x="36" y="64.0" font-size="10" fill="#5F6B7A" text-anchor="end">50</text><rect x="65.0" y="132.0" width="38" height="168.0" fill="#C9D2DC"/><text x="84.0" y="127.0" font-size="11" font-weight="600" fill="#0E1B2C" text-anchor="middle">35</text><rect x="111.0" y="223.2" width="38" height="76.8" fill="#C9D2DC"/><text x="130.0" y="218.2" font-size="11" font-weight="600" fill="#0E1B2C" text-anchor="middle">16</text><text x="107.0" y="318" font-size="11.5" fill="#2B3645" text-anchor="middle" font-weight="400">Plan</text><text x="107.0" y="332" font-size="11.5" fill="#2B3645" text-anchor="middle" font-weight="400"></text><rect x="191.0" y="146.4" width="38" height="153.6" fill="#A9C3E3"/><text x="210.0" y="141.4" font-size="11" font-weight="600" fill="#0E1B2C" text-anchor="middle">32</text><rect x="237.0" y="208.8" width="38" height="91.2" fill="#A8D5CC"/><text x="256.0" y="203.8" font-size="11" font-weight="600" fill="#0E1B2C" text-anchor="middle">19</text><text x="233.0" y="318" font-size="11.5" fill="#2B3645" text-anchor="middle" font-weight="400">High</text><text x="233.0" y="332" font-size="11.5" fill="#2B3645" text-anchor="middle" font-weight="400">variability</text><rect x="317.0" y="133.92" width="38" height="166.08" fill="#A9C3E3"/><text x="336.0" y="128.92" font-size="11" font-weight="600" fill="#0E1B2C" text-anchor="middle">34.6</text><rect x="363.0" y="86.88000000000002" width="38" height="213.11999999999998" fill="#A8D5CC"/><text x="382.0" y="81.88000000000002" font-size="11" font-weight="600" fill="#0E1B2C" text-anchor="middle">44.4</text><text x="359.0" y="318" font-size="11.5" fill="#2B3645" text-anchor="middle" font-weight="400">Large</text><text x="359.0" y="332" font-size="11.5" fill="#2B3645" text-anchor="middle" font-weight="400">buffers</text><rect x="443.0" y="132.0" width="38" height="168.0" fill="#1D5FA8"/><text x="462.0" y="127.0" font-size="11" font-weight="600" fill="#0E1B2C" text-anchor="middle">35</text><rect x="489.0" y="223.68" width="38" height="76.32" fill="#17806D"/><text x="508.0" y="218.68" font-size="11" font-weight="600" fill="#0E1B2C" text-anchor="middle">15.9</text><text x="485.0" y="318" font-size="11.5" fill="#2B3645" text-anchor="middle" font-weight="700">Low</text><text x="485.0" y="332" font-size="11.5" fill="#2B3645" text-anchor="middle" font-weight="700">variability</text><line x1="44" x2="548" y1="300" y2="300" stroke="#9AA6B4"/><text x="0" y="358" font-size="10" fill="#5F6B7A">Average of 500 Monte Carlo runs per scenario</text></svg></figure></div>
+      </article>
+
+      <article class="proj g">
+        <div class="proj-text">
+        <div class="proj-head"><div class="metric">+4.6%<small>profit vs. no promotion</small></div><span class="tag">Supply Chain</span></div>
+        <h3>Aggregate Production Planning</h3>
+        <div class="meta">Operations Management · NTU MBA · 2026</div>
+        <dl class="prob">
+          <dt>Problem</dt><dd>Which promotion month maximises profit, and how should a manufacturer balance staff, overtime, subcontracting and inventory to meet the demand spike at the lowest cost?</dd>
+          <dt>Approach</dt><dd>Built an optimisation model in Excel Solver covering six months of decisions and constraints.</dd>
+          <dt>Outcome</dt><dd>Compared three promotion scenarios: a November promotion gave the highest profit (+4.6% vs. no promotion). Sensitivity tests showed the decision flips if the discount doubles.</dd>
+        </dl>
+        <div class="tools"><span>Excel Solver</span><span>Linear programming</span></div>
+      </div>
+        <div class="proj-media"><figure><svg viewBox="0 0 560 360" role="img" aria-label="Production plan chart" font-family="Inter,Arial,sans-serif"><text x="0" y="18" font-size="15" font-weight="700" fill="#0E1B2C">Lowest-cost plan for the winning scenario</text><rect x="0" y="32" width="10" height="10" fill="#1D5FA8"/><text x="15" y="41" font-size="11" fill="#2B3645">In-house production</text><rect x="150" y="32" width="10" height="10" fill="#17806D"/><text x="165" y="41" font-size="11" fill="#2B3645">Subcontracted</text><rect x="262" y="32" width="10" height="10" fill="#C9D2DC"/><text x="277" y="41" font-size="11" fill="#2B3645">Opening stock</text><line x1="372" x2="392" y1="37" y2="37" stroke="#0F2A4A" stroke-width="2"/><circle cx="382" cy="37" r="3" fill="#0F2A4A"/><text x="397" y="41" font-size="11" fill="#2B3645">Demand</text><line x1="50" x2="548" y1="300.0" y2="300.0" stroke="#E6EAEF"/><text x="42" y="304.0" font-size="10" fill="#5F6B7A" text-anchor="end">0k</text><line x1="50" x2="548" y1="252.0" y2="252.0" stroke="#E6EAEF"/><text x="42" y="256.0" font-size="10" fill="#5F6B7A" text-anchor="end">100k</text><line x1="50" x2="548" y1="204.0" y2="204.0" stroke="#E6EAEF"/><text x="42" y="208.0" font-size="10" fill="#5F6B7A" text-anchor="end">200k</text><line x1="50" x2="548" y1="156.0" y2="156.0" stroke="#E6EAEF"/><text x="42" y="160.0" font-size="10" fill="#5F6B7A" text-anchor="end">300k</text><line x1="50" x2="548" y1="108.0" y2="108.0" stroke="#E6EAEF"/><text x="42" y="112.0" font-size="10" fill="#5F6B7A" text-anchor="end">400k</text><line x1="50" x2="548" y1="60.0" y2="60.0" stroke="#E6EAEF"/><text x="42" y="64.0" font-size="10" fill="#5F6B7A" text-anchor="end">500k</text><rect x="69.5" y="276.0" width="44" height="24.0" fill="#1D5FA8"/><rect x="69.5" y="252.0" width="44" height="24.0" fill="#C9D2DC"/><text x="91.5" y="318" font-size="11.5" fill="#2B3645" text-anchor="middle">Jul</text><rect x="152.5" y="247.2" width="44" height="52.8" fill="#1D5FA8"/><text x="174.5" y="318" font-size="11.5" fill="#2B3645" text-anchor="middle">Aug</text><rect x="235.5" y="237.6" width="44" height="62.4" fill="#1D5FA8"/><text x="257.5" y="318" font-size="11.5" fill="#2B3645" text-anchor="middle">Sep</text><rect x="318.5" y="213.60000000000002" width="44" height="86.39999999999999" fill="#1D5FA8"/><text x="340.5" y="318" font-size="11.5" fill="#2B3645" text-anchor="middle">Oct</text><rect x="401.5" y="192.0" width="44" height="108.0" fill="#1D5FA8"/><rect x="401.5" y="76.80000000000001" width="44" height="115.19999999999999" fill="#17806D"/><text x="423.5" y="318" font-size="11.5" fill="#2B3645" text-anchor="middle">Nov</text><rect x="484.5" y="199.2" width="44" height="100.8" fill="#1D5FA8"/><text x="506.5" y="318" font-size="11.5" fill="#2B3645" text-anchor="middle">Dec</text><polyline points="91.5,252.0 174.5,247.2 257.5,237.6 340.5,213.60000000000002 423.5,76.80000000000001 506.5,199.2" fill="none" stroke="#0F2A4A" stroke-width="2"/><circle cx="91.5" cy="252.0" r="3.5" fill="#0F2A4A"/><circle cx="174.5" cy="247.2" r="3.5" fill="#0F2A4A"/><circle cx="257.5" cy="237.6" r="3.5" fill="#0F2A4A"/><circle cx="340.5" cy="213.60000000000002" r="3.5" fill="#0F2A4A"/><circle cx="423.5" cy="76.80000000000001" r="3.5" fill="#0F2A4A"/><circle cx="506.5" cy="199.2" r="3.5" fill="#0F2A4A"/><text x="389.5" y="72.80000000000001" font-size="11" fill="#0E1B2C" text-anchor="end">Promotion peak absorbed</text><text x="389.5" y="86.80000000000001" font-size="11" fill="#0E1B2C" text-anchor="end">by subcontracting</text><line x1="50" x2="548" y1="300" y2="300" stroke="#9AA6B4"/><text x="0" y="358" font-size="10" fill="#5F6B7A">Excel Solver optimisation · textbook case data</text></svg></figure></div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-text">
+        <div class="proj-head"><div class="metric">Gold Award<small>client-validated insight</small></div><span class="tag">Business Analytics</span></div>
+        <h3>Member Retention Analysis for Laurel</h3>
+        <div class="meta">AI-assisted Marketing Course · Feb – May 2025</div>
+        <dl class="prob">
+          <dt>Problem</dt><dd>A food and nutrition brand was quietly losing a high-value group of members.</dd>
+          <dt>Approach</dt><dd>Segmented the membership data to spot which customers were going dormant, then built a new-product and retention plan aimed at winning them back.</dd>
+          <dt>Outcome</dt><dd>Presented to Laurel's executives; the finding matched the company's own internal analysis. Won the Gold Award.</dd>
+        </dl>
+        <div class="tools"><span>Customer segmentation</span><span>Tableau Prep</span><span>Excel</span></div>
+      </div>
+        <div class="proj-media"><figure><svg viewBox="0 0 560 300" role="img" aria-label="From member data to a win-back plan" font-family="Inter,Arial,sans-serif"><text x="0" y="18" font-size="15" font-weight="700" fill="#0E1B2C">From member data to a win-back plan</text><rect x="0.0" y="80" width="126.5" height="130" fill="#E8F0F9" stroke="#1D5FA8" stroke-width="1.5"/><rect x="0.0" y="80" width="126.5" height="5" fill="#1D5FA8"/><text x="12.0" y="110" font-size="12" font-weight="700" fill="#1D5FA8">01</text><text x="12.0" y="136" font-size="13" font-weight="700" fill="#0E1B2C">Member</text><text x="12.0" y="153" font-size="13" font-weight="700" fill="#0E1B2C">data</text><text x="12.0" y="176" font-size="11" fill="#5F6B7A">Purchase history,</text><text x="12.0" y="191" font-size="11" fill="#5F6B7A">age, recency</text><path d="M129.5 145 l12 0 m-5 -5 l5 5 l-5 5" fill="none" stroke="#0F2A4A" stroke-width="1.6"/><rect x="144.5" y="80" width="126.5" height="130" fill="#E8F0F9" stroke="#1D5FA8" stroke-width="1.5"/><rect x="144.5" y="80" width="126.5" height="5" fill="#1D5FA8"/><text x="156.5" y="110" font-size="12" font-weight="700" fill="#1D5FA8">02</text><text x="156.5" y="136" font-size="13" font-weight="700" fill="#0E1B2C">Segment</text><text x="156.5" y="176" font-size="11" fill="#5F6B7A">Age group ×</text><text x="156.5" y="191" font-size="11" fill="#5F6B7A">purchase recency</text><path d="M274.0 145 l12 0 m-5 -5 l5 5 l-5 5" fill="none" stroke="#0F2A4A" stroke-width="1.6"/><rect x="289.0" y="80" width="126.5" height="130" fill="#E6F3F0" stroke="#17806D" stroke-width="1.5"/><rect x="289.0" y="80" width="126.5" height="5" fill="#17806D"/><text x="301.0" y="110" font-size="12" font-weight="700" fill="#17806D">03</text><text x="301.0" y="136" font-size="13" font-weight="700" fill="#0E1B2C">Find the</text><text x="301.0" y="153" font-size="13" font-weight="700" fill="#0E1B2C">leak</text><text x="301.0" y="176" font-size="11" fill="#5F6B7A">High-value group</text><text x="301.0" y="191" font-size="11" fill="#5F6B7A">going dormant</text><path d="M418.5 145 l12 0 m-5 -5 l5 5 l-5 5" fill="none" stroke="#0F2A4A" stroke-width="1.6"/><rect x="433.5" y="80" width="126.5" height="130" fill="#E8F0F9" stroke="#1D5FA8" stroke-width="1.5"/><rect x="433.5" y="80" width="126.5" height="5" fill="#1D5FA8"/><text x="445.5" y="110" font-size="12" font-weight="700" fill="#1D5FA8">04</text><text x="445.5" y="136" font-size="13" font-weight="700" fill="#0E1B2C">Win-back</text><text x="445.5" y="153" font-size="13" font-weight="700" fill="#0E1B2C">plan</text><text x="445.5" y="176" font-size="11" fill="#5F6B7A">New product +</text><text x="445.5" y="191" font-size="11" fill="#5F6B7A">retention offer</text><text x="0" y="270" font-size="11" fill="#5F6B7A">Client data kept confidential; diagram shows the method only.</text></svg></figure></div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-text">
+        <div class="proj-head"><div class="metric">700+<small>sign-ups in one week</small></div><span class="tag">Startup</span></div>
+        <h3>Wooshi Lunch Delivery</h3>
+        <div class="meta">Brand Marketing Lead · The First Step of Startup Course · Sep 2023 – Jan 2024</div>
+        <dl class="prob">
+          <dt>Problem</dt><dd>Students near campus had few good lunch options at a fair price.</dd>
+          <dt>Approach</dt><dd>Spotted the demand, helped pivot to a subscription delivery model and onboarded restaurant partners.</dd>
+          <dt>Outcome</dt><dd>700+ LINE sign-ups in the first week and a Gold Award after mentors first rejected the idea. The service then ran for a full year.</dd>
+        </dl>
+        <div class="tools"><span>Customer discovery</span><span>Partnerships</span><span>Go-to-market</span></div>
+        <a class="more" href="https://www.instagram.com/wooshi__wue/" target="_blank" rel="noopener">View Wooshi on Instagram →</a>
+      </div>
+        <div class="proj-media"><figure><img src="assets/proj-wooshi.jpg" alt="Wooshi lunch delivery pitch deck cover"><figcaption>Final demo-day pitch deck</figcaption></figure></div>
+      </article>
+
+      <article class="proj g">
+        <div class="proj-text">
+        <div class="proj-head"><div class="metric">NLP<small>in progress</small></div><span class="tag">Data Analysis</span></div>
+        <h3>Fintech App Review Analysis</h3>
+        <div class="meta">Text Analytics · NTU MBA · 2026 (ongoing)</div>
+        <dl class="prob">
+          <dt>Problem</dt><dd>What do users actually complain about and praise in fintech apps?</dd>
+          <dt>Approach</dt><dd>Scraping app-store reviews with Python and classifying them with a BERT language model.</dd>
+          <dt>Outcome</dt><dd>Ongoing. Results will be added when the project wraps up.</dd>
+        </dl>
+        <div class="tools"><span>Python</span><span>Web scraping</span><span>BERT</span></div>
+      </div>
+        <div class="proj-media"><figure><svg viewBox="0 0 560 300" role="img" aria-label="Review analysis pipeline" font-family="Inter,Arial,sans-serif"><text x="0" y="18" font-size="15" font-weight="700" fill="#0E1B2C">Review analysis pipeline</text><rect x="0.0" y="80" width="126.5" height="130" fill="#E8F0F9" stroke="#1D5FA8" stroke-width="1.5"/><rect x="0.0" y="80" width="126.5" height="5" fill="#1D5FA8"/><text x="12.0" y="110" font-size="12" font-weight="700" fill="#1D5FA8">01</text><text x="12.0" y="136" font-size="13" font-weight="700" fill="#0E1B2C">Scrape</text><text x="12.0" y="176" font-size="11" fill="#5F6B7A">App-store reviews</text><text x="12.0" y="191" font-size="11" fill="#5F6B7A">with Python</text><path d="M129.5 145 l12 0 m-5 -5 l5 5 l-5 5" fill="none" stroke="#0F2A4A" stroke-width="1.6"/><rect x="144.5" y="80" width="126.5" height="130" fill="#E8F0F9" stroke="#1D5FA8" stroke-width="1.5"/><rect x="144.5" y="80" width="126.5" height="5" fill="#1D5FA8"/><text x="156.5" y="110" font-size="12" font-weight="700" fill="#1D5FA8">02</text><text x="156.5" y="136" font-size="13" font-weight="700" fill="#0E1B2C">Clean &</text><text x="156.5" y="153" font-size="13" font-weight="700" fill="#0E1B2C">label</text><text x="156.5" y="176" font-size="11" fill="#5F6B7A">Dictionary +</text><text x="156.5" y="191" font-size="11" fill="#5F6B7A">manual labels</text><path d="M274.0 145 l12 0 m-5 -5 l5 5 l-5 5" fill="none" stroke="#0F2A4A" stroke-width="1.6"/><rect x="289.0" y="80" width="126.5" height="130" fill="#E6F3F0" stroke="#17806D" stroke-width="1.5"/><rect x="289.0" y="80" width="126.5" height="5" fill="#17806D"/><text x="301.0" y="110" font-size="12" font-weight="700" fill="#17806D">03</text><text x="301.0" y="136" font-size="13" font-weight="700" fill="#0E1B2C">Classify</text><text x="301.0" y="176" font-size="11" fill="#5F6B7A">BERT language</text><text x="301.0" y="191" font-size="11" fill="#5F6B7A">model</text><path d="M418.5 145 l12 0 m-5 -5 l5 5 l-5 5" fill="none" stroke="#0F2A4A" stroke-width="1.6"/><rect x="433.5" y="80" width="126.5" height="130" fill="#E8F0F9" stroke="#1D5FA8" stroke-width="1.5"/><rect x="433.5" y="80" width="126.5" height="5" fill="#1D5FA8"/><text x="445.5" y="110" font-size="12" font-weight="700" fill="#1D5FA8">04</text><text x="445.5" y="136" font-size="13" font-weight="700" fill="#0E1B2C">Insights</text><text x="445.5" y="176" font-size="11" fill="#5F6B7A">Pain points by</text><text x="445.5" y="191" font-size="11" fill="#5F6B7A">app & feature</text><text x="0" y="270" font-size="11" fill="#5F6B7A">Project in progress · NTU Text Analytics</text></svg></figure></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <span class="kicker">Experience</span>
+    <h2>Professional experience</h2>
+    <div class="job">
+      <div class="date">Oct 2023 – Jun 2024</div>
+      <div>
+        <h3>Brand Marketing Intern</h3>
+        <div class="org">Thai Town Cuisine · Taipei</div>
+        <ul>
+          <li>Primary point of contact between HQ, department stores and brand partners, keeping promotion schedules on track across 60+ retail locations.</li>
+          <li>Co-planned the 2024 Mother's Day campaign and cross-brand partnerships, from proposal to execution.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap two">
+    <div class="panel">
+      <h3>Skills & Certificates</h3>
+      <div class="skill-group"><b>Data & Analysis</b><div class="pills"><span>Python</span><span>SQL</span><span>R</span><span>Excel (Pivot, Solver)</span><span>SPSS</span><span>Looker</span></div></div>
+      <div class="skill-group"><b>Certificates</b><div class="pills"><span>IBM Data Analyst courses × 8 (Coursera, 2026) · <a href="#certificates" style="color:var(--blue)">see list</a></span></div></div>
+      <div class="skill-group"><b>Languages</b><div class="pills"><span>English · TOEIC 860</span><span>Japanese · JLPT N3 (N2 in progress)</span><span>Mandarin · Native</span></div></div>
+    </div>
+    <div class="panel">
+      <h3>Education</h3>
+      <div class="edu">
+        <h4>National Taiwan University</h4>
+        <p>MBA · Sep 2026 – 2028 (expected)<br>Operations Management, Logistics Management, Business Statistics (R), Text Analytics</p>
+      </div>
+      <div class="edu">
+        <h4>National Chengchi University</h4>
+        <p>BBA · Sep 2021 – Dec 2025<br>GPA 4.10 / 4.30 · Outstanding Academic Performance Award (Senior Year)<br>Exchange: SGH Warsaw School of Economics, Poland</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certificates">
+  <div class="wrap">
+    <span class="kicker">Certificates</span>
+    <h2>IBM data analytics courses</h2>
+    <div class="certs">
+      <div>
+        <p class="cert-intro">8 courses from IBM's data analyst track on Coursera, completed in four months (May – Aug 2026) alongside starting my MBA. Each one can be verified on Coursera.</p>
+        <ul class="cert-list">
+          <li><span class="cd">May 2026</span><span class="cn">Data Analytics Foundations: Turn Data into Insights</span><a href="https://www.coursera.org/verify/IUTH73W1LX84" target="_blank" rel="noopener">Verify ↗</a></li>
+          <li><span class="cd">May 2026</span><span class="cn">Excel for Data Analysis: Essential Skills & Techniques</span><a href="https://www.coursera.org/verify/H32A4AC451W6" target="_blank" rel="noopener">Verify ↗</a></li>
+          <li><span class="cd">Jun 2026</span><span class="cn">Data Visualization and Dashboards with Excel and Cognos</span><a href="https://www.coursera.org/verify/Z58TJH0OA85W" target="_blank" rel="noopener">Verify ↗</a></li>
+          <li><span class="cd">Jul 2026</span><span class="cn">Python for Data Science & AI: Hands-On Development</span><a href="https://www.coursera.org/verify/7WGBHK1XJAA2" target="_blank" rel="noopener">Verify ↗</a></li>
+          <li><span class="cd">Jul 2026</span><span class="cn">Python Project for Data Science</span><a href="https://www.coursera.org/verify/Z85TMT1OIR3A" target="_blank" rel="noopener">Verify ↗</a></li>
+          <li><span class="cd">Aug 2026</span><span class="cn">Databases and SQL for Data Science with Python</span><a href="https://www.coursera.org/verify/KPU9URM9U49V" target="_blank" rel="noopener">Verify ↗</a></li>
+          <li><span class="cd">Aug 2026</span><span class="cn">Data Analysis with Python: From Raw Data to Insights</span><a href="https://www.coursera.org/verify/4DN1PKK0TR3J" target="_blank" rel="noopener">Verify ↗</a></li>
+          <li><span class="cd">Aug 2026</span><span class="cn">Data Visualization with Python: Hands-On Projects</span><a href="https://www.coursera.org/verify/XP4NO9DXRYR6" target="_blank" rel="noopener">Verify ↗</a></li>
+        </ul>
+      </div>
+      <figure class="cert-img"><img src="assets/cert-sample.jpg" alt="Sample IBM course certificate from Coursera"><figcaption>Sample certificate · Data Analysis with Python</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Contact</span>
+      <h2>Let's connect.</h2>
+      <p>Open to internships in Taipei from late 2026 or the 2027 winter break, including part-time roles during the semester.</p>
+    </div>
+    <div class="btns">
+      <a class="btn primary" href="mailto:yi.xuan92303@gmail.com">yi.xuan92303@gmail.com</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/yixuanhuang11" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Dana Huang</footer>
+</body>
+</html>
